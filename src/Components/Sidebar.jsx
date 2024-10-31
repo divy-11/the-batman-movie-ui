@@ -21,27 +21,31 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="fixed right-8 top-1/4 flex flex-col gap-6 text-white font-medium">
+        <div className="fixed right-8 top-1/3 flex flex-col gap-6 text-white font-medium z-10 ">
             {menuItems.map((item) => (
                 <div
                     key={item.name}
-                    className={`flex items-center gap-3 transition-all duration-300 cursor-pointer ${selected === item.section ? "opacity-100" : "opacity-70"
-                        }`}
+                    className={`flex items-center gap-3 transition-all duration-300 cursor-pointer ${
+                        selected === item.section ? "opacity-100" : "opacity-70"
+                    }`}
                     onClick={() => scrollToSection(item.section)}
                 >
-                    <div className="transition-transform duration-300 hover:text-red-600 flex">
+                    <div className="flex items-center transition-transform duration-300 hover:text-red-600">
                         <span
-                            className={`${selected === item.section ? "scale-125" : "scale-100"
-                                } mr-2 `}
+                            className={`transition-transform duration-300 ${
+                                selected === item.section ? "scale-125" : "scale-100"
+                            } mr-2`}
                         >
                             {item.icon}
                         </span>
                         <span
-                            className={` ${selected === item.section ? "text-lg" : "text-sm"
-                                }`}
+                            className={`transition-transform duration-300 ${
+                                selected === item.section ? "text-lg scale-110" : "text-sm scale-100"
+                            }`}
                         >
                             {item.name}
-                        </span></div>
+                        </span>
+                    </div>
                 </div>
             ))}
         </div>
